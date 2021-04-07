@@ -1,6 +1,7 @@
 package com.library.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.ArrayList;
 import java.util.Set;
 

@@ -1,9 +1,6 @@
 package com.library.models;
 
-import com.library.main.enums;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +13,9 @@ public class Book {
     String title;
     String author;
     String publisher;
+    @Enumerated
     enums.Condition condition;
+    @Enumerated
     enums.BookStatus bookStatus;
     @ManyToMany(mappedBy = "books") //mappedBy tells Hibernate this is the child side of the bidirectional mapping
     Set<Department> departments;

@@ -1,4 +1,4 @@
-package com.library.main;
+package com.library.models;
 
 public class enums {
     public enum AccountType{
