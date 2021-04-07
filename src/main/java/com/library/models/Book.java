@@ -4,6 +4,8 @@ import com.library.main.enums;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -16,12 +18,13 @@ public class Book {
     String publisher;
     enums.Condition condition;
     enums.BookStatus bookStatus;
-    ArrayList<Department> departments;
+    @ManyToMany(mappedBy = "books") //mappedBy tells Hibernate this is the child side of the bidirectional mapping
+    Set<Department> departments;
 
     public Book() {
     }
 
-    public Book(int id, int isbn, String title, String author, String publisher, enums.Condition condition, enums.BookStatus bookStatus, ArrayList<Department> departments) {
+    public Book(int id, int isbn, String title, String author, String publisher, enums.Condition condition, enums.BookStatus bookStatus, HashSet<Department> departments) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
@@ -88,11 +91,11 @@ public class Book {
         this.bookStatus = bookStatus;
     }
 
-    public ArrayList<Department> getDepartments() {
+    public Set<Department> getDepartments() {
         return departments;
     }
 
-    public void setDepartments(ArrayList<Department> departments) {
+    public void setDepartments(Set<Department> departments) {
         this.departments = departments;
     }
 }
