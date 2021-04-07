@@ -1,7 +1,5 @@
 package com.library.models;
 
-import com.library.main.enums;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 
